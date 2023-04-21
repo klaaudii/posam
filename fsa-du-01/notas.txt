@@ -1,0 +1,30 @@
+JDBC API
+->  it is a set of interfaces and classes that have been defined and standardized by a recognized organization
+-> interfacy implementujú JDBC Drivere, teda JDBC API je len nejaký štandard a v skutočnosti metódy nie sú implementované
+-> JDBC provides a common interface for Java applications to interact with databases,
+regardless of the specific database management system or vendor being used.
+This allows developers to write database applications that can work with a variety of databases
+and can be easily ported to different platforms.
+-> The actual implementation of the driver is provided by the JDBC driver itself,
+which should provide a concrete implementation of the Driver interface
+and override its methods to provide the necessary functionality.
+
+
+DriverManager
+-> je trieda, ktorá patrí do JDBC API, a tiež do java.sql packagu
+-> The DriverManager class maintains a list of Driver classes.
+-> It contains all the appropriate methods to register and deregister the database driver class
+and to create a connection between a Java application and the database.
+-> To aký driver, alebo teda akú DB chceme použiť vieme z url: url = "jdbc:postgresql://localhost:5434/dvdrental";
+
+
+
+JDBC Driver
+-> konkrétna implementácia JDBC API
+-> pre kazdu DB je na mieru sity JDBC driver
+-> komunikuje medzi userom a DB
+-> je to vlastne softverovy komponent, ktorý si stiahneme ako .jar file a pridáme ako dependenciu do projektu
+   //lib folder -> add postgres.jar
+   //project structure -> modules -> dependencies -> + postgres.jar
+-> následne sa zaregistruje v DriverManagerovi a následne už môžeme ho používať
+
