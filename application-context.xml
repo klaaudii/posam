@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="classpath:database-context.xml"/>
+
+    <bean id="customerDao" class="com.example.dao.CustomerDao">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="customerService" class="com.example.service.CustomerServiceImpl">
+        <property name="customerDao" ref="customerDao"/>
+        <property name="emailService" ref="emailService"/>
+        <property name="currency" value="EUR"/>
+        <property name="discount" value="0.0"/>
+    </bean>
+
+    <bean id="emailService" class="com.example.service.EmailServiceImpl">
+        <constructor-arg value="smtp.gmail.com"/>
+        <constructor-arg value="587"/>
+        <property name="username" value="email@gmail.com"/>
+        <property name="password" value="password"/>
+    </bean>
+</beans>
