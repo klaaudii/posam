@@ -1,0 +1,16 @@
+server:
+  port: 8089
+
+logging:
+  level:
+    org.springframework: INFO
+    com.mkyong: DEBUG
+
+spring:
+  cloud:
+    config:
+      enabled: false
+  profiles:
+    active: fsa23
+  main:
+    banner-mode: log

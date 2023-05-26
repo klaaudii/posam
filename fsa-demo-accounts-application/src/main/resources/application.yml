@@ -1,0 +1,16 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    org.springframework: DEBUG
+    com.mkyong: DEBUG
+
+spring:
+  cloud:
+    config:
+      enabled: false
+  # config:
+  #   import: classpath:./application[.yml]
+  profiles:
+    active: dev
